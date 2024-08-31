@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Teaser Template</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 5px auto;
+            padding: 5px;
+            background-color: #f0f0f0;
+        }
+        .job-teaser {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 2px solid #0066cc;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: #0066cc;
+            padding: 10px;
+        }
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .job-title {
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .content {
+            padding: 5px;
+            position: relative;
+            overflow: hidden;
+            min-height: 160px;
+        }
+        .slide {
+            display: none;
+            animation: fadeEffect 0.5s;
+        }
+        .slide.active {
+            display: block;
+        }
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        .nav-dots {
+            text-align: center;
+            margin-top: 2px;
+        }
+        .dot {
+            height: 8px;
+            width: 8px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 3px;
+            cursor: pointer;
+        }
+        .dot.active {
+            background-color: #0066cc;
+        }
+        .full-ad-toggle {
+            text-align: right;
+            padding: 2px 5px;
+            background-color: #f0f0f0;
+            font-size: 0.9em;
+        }
+        .full-job-ad {
+            display: none;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .apply-button {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            background-color: #0066cc;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        .apply-button:hover {
+            background-color: #0052a3;
+        }
+        h2 {
+            margin: 5px 0;
+            color: #0066cc;
+            font-size: 1.1em;
+        }
+        ul {
+            margin: 3px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 2px;
+        }
+        p {
+            margin: 3px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="job-teaser">
+        <div class="header">
+            <img src="[COMPANY_LOGO_URL]" alt="Company Logo" class="logo">
+            <h1 class="job-title">[JOB_TITLE]</h1>
+        </div>
+        <div class="content">
+            <div class="slide active">
+                <h2>Job Overview</h2>
+                <p>[BRIEF_JOB_DESCRIPTION]</p>
+                <ul>
+                    <li>[KEY_POINT_1]</li>
+                    <li>[KEY_POINT_2]</li>
+                    <li>[KEY_POINT_3]</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Key Requirements</h2>
+                <ul>
+                    <li>[REQUIREMENT_1]</li>
+                    <li>[REQUIREMENT_2]</li>
+                    <li>[REQUIREMENT_3]</li>
+                    <li>[REQUIREMENT_4]</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Company Values</h2>
+                <ul>
+                    <li>[VALUE_1]</li>
+                    <li>[VALUE_2]</li>
+                    <li>[VALUE_3]</li>
+                    <li>[VALUE_4]</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Benefits</h2>
+                <ul>
+                    <li>[BENEFIT_1]</li>
+                    <li>[BENEFIT_2]</li>
+                    <li>[BENEFIT_3]</li>
+                    <li>[BENEFIT_4]</li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+        <div class="full-ad-toggle">
+            <label for="fullAdToggle">Show Full Job Ad</label>
+            <input type="checkbox" id="fullAdToggle" onclick="toggleFullAd()">
+        </div>
+        <div class="full-job-ad" id="fullJobAd">
+            <h2>Full Job Description</h2>
+            <p><strong>Position:</strong> [JOB_TITLE]</p>
+            <p><strong>Location:</strong> [JOB_LOCATION]</p>
+            <p><strong>Company:</strong> [COMPANY_NAME] - [BRIEF_COMPANY_DESCRIPTION]</p>
+            
+            <h3>Key Responsibilities:</h3>
+            <ul>
+                <li>[RESPONSIBILITY_1]</li>
+                <li>[RESPONSIBILITY_2]</li>
+                <li>[RESPONSIBILITY_3]</li>
+                <li>[RESPONSIBILITY_4]</li>
+            </ul>
+
+            <h3>Requirements:</h3>
+            <ul>
+                <li>[DETAILED_REQUIREMENT_1]</li>
+                <li>[DETAILED_REQUIREMENT_2]</li>
+                <li>[DETAILED_REQUIREMENT_3]</li>
+                <li>[DETAILED_REQUIREMENT_4]</li>
+            </ul>
+
+            <h3>Benefits:</h3>
+            <ul>
+                <li>[DETAILED_BENEFIT_1]</li>
+                <li>[DETAILED_BENEFIT_2]</li>
+                <li>[DETAILED_BENEFIT_3]</li>
+                <li>[DETAILED_BENEFIT_4]</li>
+            </ul>
+
+            <p>[COMPANY_NAME] is an Equal Opportunity Employer promoting diversity and inclusion.</p>
+        </div>
+        <a href="[APPLICATION_URL]" class="apply-button" target="_blank">Apply Now</a>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            slides[slideIndex-1].classList.add("active");  
+            dots[slideIndex-1].classList.add("active");
+        }
+
+        function toggleFullAd() {
+            const fullJobAd = document.getElementById("fullJobAd");
+            const checkbox = document.getElementById("fullAdToggle");
+            fullJobAd.style.display = checkbox.checked ? "block" : "none";
+        }
+
+        // Auto-slide functionality
+        setInterval(() => {
+            plusSlides(1);
+        }, 5000); // Change slide every 5 seconds
+    </script>
+</body>
+</html>
